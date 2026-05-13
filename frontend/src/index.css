@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme {
+  --color-omni-bg: #0f172a;
+  --color-omni-card: #1e293b;
+  --color-omni-text: #f8fafc;
+  --color-omni-primary: #3b82f6;
+  --color-omni-yes: #22c55e;
+  --color-omni-no: #ef4444;
+}
+
+body {
+  background-color: var(--color-omni-bg);
+  color: var(--color-omni-text);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
