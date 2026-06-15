@@ -26,9 +26,6 @@ jobs:
       - name: Start Application
         run: docker compose up -d --build
 
-      - name: Run migrations
-        run: docker exec omnimarket_api alembic upgrade head
-
       - name: Seed database
         run: docker exec omnimarket_api python seed_db.py
 
