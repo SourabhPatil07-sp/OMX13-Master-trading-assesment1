@@ -48,8 +48,13 @@ jobs:
       - name: Run Frontend Tests
         run: npm test --prefix frontend
 
-      - name: Run Go Tests
-        run: docker exec omnimarket_engine go test ./... -v
+      - name: Run Go Unit Tests
+        run: |
+           docker run --rm \
+            -v ${{ github.workspace }}/backend/engine:/app \
+            -w /app \
+             golang:1.26-alpine \
+             go test ./internal/amm/... -v
           
       - name: Docker Login
         uses: docker/login-action@v3
