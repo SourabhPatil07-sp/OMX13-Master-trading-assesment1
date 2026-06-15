@@ -35,8 +35,9 @@ jobs:
     #   run: docker exec omnimarket_api python seed_db.py
 
     - name: Run tests
-      run: |
-        docker run --rm -v $(pwd)/backend/engine:/app \golang:1.26-alpine go test ./... -v
+      run: 
+        docker run --rm \
+        -v $(pwd)/backend/engine:/app -w /app \golang:1.26-alpine \ go test ./... -v
         docker exec omnimarket_api pytest
         npm run test --prefix frontend
 
